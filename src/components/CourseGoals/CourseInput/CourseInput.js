@@ -26,15 +26,14 @@ const CourseInput = props => {
 
   return (
     <form onSubmit={formSubmitHandler}>
-      <div className="form-control">
-        <label style={{ color: !isValid ? 'red' : 'black' }}>Course Goal</label>
+      {/* Dynamic way of adding classes
+      Write template literal inside curly braces adding invakid className on the condition that the current isVlid state is false
+       */}
+      <div className={`form-control ${!isValid ? 'invalid' : ''}`}>
+        <label>Course Goal</label>
         <input
           type="text"
           onChange={goalInputChangeHandler}
-          style={{
-            backgroundColor: !isValid ? 'pink' : 'white',
-            borderColor: !isValid ? 'red' : 'black',
-          }}
           //^^ If isValid state is NOT true, styles for label and input will be active
         />
       </div>
